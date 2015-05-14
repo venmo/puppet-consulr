@@ -28,8 +28,10 @@ module Puppet::Parser::Functions
         uri = URI.parse("#{uri}/v1/kv/#{prefix}?recurse")
         response = Net::HTTP.get_response(uri)
 
-	raise "HTTP error: #{prefix}/ #{response.code} #{response.message}" unless response.code == '200'
-	data = JSON.parse(response.body)
+        # If at least one key with the facter prefix is not found,
+        # fail silently
+        raise "HTTP error: #{prefix}/ #{response.code} #{response.message}" unless ['200', '404'].include?(response.code)
+        data = JSON.parse(body) rescue []
 
         # Iterate though the keys and put them in a hash 
         data.each do |kv|
