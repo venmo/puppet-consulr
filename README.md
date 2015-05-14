@@ -2,8 +2,12 @@
 Dynamic puppet manifests using consul
 
 ## getting started
-Add this line to **site.pp** or some place where it can be called as top-scope var
+Add a key to consul
+```
+curl -X PUT <uri>/v1/kv/<ec2_instance_id>/some_key -d 'some value'
+```
 
+Add this line to **site.pp** or some place where it can be called as top-scope var
 ```
 $something_fancy = consulr_kv('http://localhost:8500', 'ec2_instance_id')
 ```
@@ -19,7 +23,7 @@ $::something_fancy['some_key']
 consulr_kv(uri, facter_prefix_key)
 ```
 
-* `uri`: URI to connect to http api, usually its `http://localhost:8500`.
+* `uri`: URI to connect to http api, usually its `http://localhost:8500` (no trailing `/`).
 
 * `facter_prefix_key`: Facter prefix key is the **name** of the key of one of the facts unique to the node.
 
