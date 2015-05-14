@@ -44,9 +44,9 @@ curl -X PUT <uri>/v1/kv/<facter_prefix_value>/<key> -d '<value>'
 
 Example:
 curl -X PUT http://localhost:8500/v1/kv/i-a8caf087/django_version -d "0.1.6"
-curl -X PUT http://localhost:8500/v1/kv/i-e4b18acb/django_upgrade -d "0.1.6"
-curl -X PUT http://localhost:8500/v1/kv/i-8581df78/django_upgrade -d "0.1.6"
-curl -X PUT http://localhost:8500/v1/kv/i-359717e3/django_upgrade -d "0.1.6"
+curl -X PUT http://localhost:8500/v1/kv/i-e4b18acb/django_version -d "0.1.6"
+curl -X PUT http://localhost:8500/v1/kv/i-8581df78/django_version -d "0.1.6"
+curl -X PUT http://localhost:8500/v1/kv/i-359717e3/django_version -d "0.1.6"
 ```
 * In site.pp initialize the function
 
