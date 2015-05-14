@@ -28,13 +28,13 @@ module Puppet::Parser::Functions
         uri = URI.parse("#{uri}/v1/kv/#{prefix}?recurse")
         response = Net::HTTP.get_response(uri)
 
-	raise "HTTP error - #{prefix}/ #{response.code} #{response.message}" unless response.code == '200'
+	raise "HTTP error: #{prefix}/ #{response.code} #{response.message}" unless response.code == '200'
 	data = JSON.parse(response.body)
 
         # Iterate though the keys and put them in a hash 
         data.each do |kv|
           # Replace only the first occurence of '<facter_prefix_key>/'
-          # with blank so when calling in puppet we can omit the instance id.
+          # with blank so when calling in puppet we can omit the facter prefix key.
           # For example:
           # $consul['django_version'] instead of $consul['i-a8caf087/django_version']
           # but this is OK: $consul['haproxy/webs/i-a8caf087/version']
