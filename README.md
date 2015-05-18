@@ -85,7 +85,7 @@ You can call deep nested keys just as easily
 ```
 curl -X PUT http://localhost:8500/v1/kv/<nodes_prefix>/<facter_prefix_value>/django/production/version -d "0.1.6"
 ```
-Again, omit `<nodes_prefix>/facter_prefix_value` when calling the key
+Again, omit `<nodes_prefix>/<facter_prefix_value>` when calling the key
 ```
 $::consulr_kv['django/production/version'] # 0.1.6
 ```
