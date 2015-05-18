@@ -25,7 +25,7 @@ consulr_kv(uri, nodes_prefix, facter_prefix_key)
 
 * `uri`: URI to connect to http api, usually its `http://localhost:8500` (no trailing `/`).
  
-* `nodes_prefix`: The prefix for all nodes related keys: <uri>/<nodes_prefix>/<facter_prefix_key>.
+* `nodes_prefix`: The prefix for all nodes related keys: `<uri>/<nodes_prefix>/<facter_prefix_key>`.
 
 * `facter_prefix_key`: Facter prefix key is the **name** of the key of one of the facts unique to the node.
 
