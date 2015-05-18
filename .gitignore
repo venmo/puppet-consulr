@@ -1,0 +1,6 @@
+.*.sw?
+.bundle
+.vagrant
+pkg
+spec/fixtures
+vendor

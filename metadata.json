@@ -1,0 +1,41 @@
+{
+  "name": "venmo-consulr",
+  "version": "0.1.0",
+  "author": "venmo",
+  "summary": "Integrate puppet with consul API",
+  "license": "Apache 2.0",
+  "source": "https://github.com/venmo/puppet-consulr",
+  "project_page": "https://github.com/venmo/puppet-consulr",
+  "issues_url": "https://github.com/venmo/puppet-consulr/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "14.04"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": "3.x"
+    }
+  ],
+  "tags": [
+    "consul",
+    "api",
+    "automation",
+    "integration"
+  ]
+}
+
