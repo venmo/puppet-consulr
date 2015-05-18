@@ -54,13 +54,13 @@ curl -X PUT http://localhost:8500/v1/kv/nodes/i-e4b18acb/django_version -d "0.1.
 curl -X PUT http://localhost:8500/v1/kv/nodes/i-8581df78/django_version -d "0.1.6"
 curl -X PUT http://localhost:8500/v1/kv/nodes/i-359717e3/django_version -d "0.1.6"
 ```
-* In site.pp initialize the function
+* In **site.pp** initialize the function
 
 ```$consulr_kv = consulr_kv('http://localhost:8500', 'nodes', 'ec2_instance_id')```
 
 * In one of your modules add a conditional like so
   * Use the variable as a top-scope (`$::some_var`)
-  * Always omit`<facter_prefix_value>` from the key name
+  * Always omit`<nodes_prefix>/<facter_prefix_value>` from the key name
     * **BAD**: `$::consulr_kv['nodes/i-a8caf087/django_version']`
     * **GOOD**: `$::consulr_kv['django_version']`
 ```
@@ -85,7 +85,7 @@ You can call deep nested keys just as easily
 ```
 curl -X PUT http://localhost:8500/v1/kv/<nodes_prefix>/<facter_prefix_value>/django/production/version -d "0.1.6"
 ```
-Again, omit `facter_prefix_value` when calling the key
+Again, omit `<nodes_prefix>/facter_prefix_value` when calling the key
 ```
 $::consulr_kv['django/production/version'] # 0.1.6
 ```
