@@ -44,7 +44,7 @@ consulr_kv({
 
   * **DO NOT** pass the fact like `$::hostname`, just pass the fact's name as a string `'hostname'`. For a list of all facts run `facter -p` on the instance.
 
-* `value_only`: If set to `false` it will only return the value of the key in string format. If `true` it will return the entire hash as received from consul.
+* `value_only`: If set to `true` it will only return the value of the key in string format. If `false` it will return the entire hash as received from consul.
 
 ```
 value_only = true
